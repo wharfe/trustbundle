@@ -47,7 +47,7 @@ describe('canonicalize', () => {
     const event = makeEvent();
     const json = canonicalize([event]);
     expect(json).not.toMatch(/\n/);
-    expect(json).not.toMatch(/  /);
+    expect(json).not.toMatch(/ {2}/);
   });
 });
 

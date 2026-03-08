@@ -1,0 +1,31 @@
+# trustbundle
+
+Pack AI agent execution traces into verifiable bundles for audit, compliance, and incident investigation.
+
+## CLI Commands
+
+trustbundle init — Initialize .trustbundle/ configuration in the current directory.
+trustbundle build <file...> — Build a TrustBundle from input files (JSONL or agentbond JSON).
+trustbundle verify <bundle.json> — Verify bundle integrity by re-computing the SHA-256 digest.
+trustbundle show <bundle.json> — Display a human-readable summary of a bundle.
+
+## Library API
+
+import { buildBundle, verifyBundle, canonicalize, computeDigest } from 'trustbundle';
+
+buildBundle(events: BundleEvent[], options?: { runId?: string; description?: string }): TrustBundle
+verifyBundle(bundle: TrustBundle): VerifyResult
+canonicalize(events: BundleEvent[]): string
+computeDigest(events: BundleEvent[]): BundleDigest
+
+## Adapters
+
+jsonlAdapter.parse(input: string): Promise<BundleEvent[]> — Parse line-delimited JSON.
+agentbondAdapter.parse(input: string): Promise<BundleEvent[]> — Parse agentbond AuditRecord[] JSON.
+
+## Core Types
+
+BundleEvent — Normalized event unit (id, source, type, timestamp, payload, metadata?).
+TrustBundle — Bundle container (bundle_id, schema_version, events, event_count, digest).
+VerifyResult — Verification outcome (valid, bundle_id, reason?).
+BundleAdapter — Adapter interface (source, parse, validate).
