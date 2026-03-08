@@ -45,6 +45,13 @@ export function registerShow(program: Command): void {
         return;
       }
 
+      // Basic schema check
+      if (!bundle.bundle_id || !Array.isArray(bundle.events) || !bundle.digest) {
+        console.error(`Error: invalid bundle schema in ${bundlePath}`);
+        process.exit(2);
+        return;
+      }
+
       // Compute digest status (show continues even if invalid)
       let digestStatus: 'valid' | 'invalid' | 'unverifiable';
       try {

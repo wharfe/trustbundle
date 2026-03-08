@@ -106,6 +106,11 @@ export function verifyBundle(bundle: TrustBundle): VerifyResult {
     return { ...base, valid: false, reason: 'UNSUPPORTED_SCHEMA_VERSION' };
   }
 
+  // Validate digest metadata
+  if (bundle.digest.algorithm !== 'sha256' || bundle.digest.covers !== 'events') {
+    return { ...base, valid: false, reason: 'SCHEMA_INVALID' };
+  }
+
   // Check event_count matches events.length
   if (bundle.event_count !== bundle.events.length) {
     return { ...base, valid: false, reason: 'EVENT_COUNT_MISMATCH' };

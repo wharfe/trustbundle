@@ -140,6 +140,24 @@ describe('verifyBundle', () => {
     expect(result.reason).toBe('UNSUPPORTED_SCHEMA_VERSION');
   });
 
+  it('rejects invalid digest algorithm', () => {
+    const bundle = buildBundle([makeEvent()]);
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    (bundle.digest as any).algorithm = 'md5';
+    const result = verifyBundle(bundle);
+    expect(result.valid).toBe(false);
+    expect(result.reason).toBe('SCHEMA_INVALID');
+  });
+
+  it('rejects invalid digest covers', () => {
+    const bundle = buildBundle([makeEvent()]);
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    (bundle.digest as any).covers = 'bundle';
+    const result = verifyBundle(bundle);
+    expect(result.valid).toBe(false);
+    expect(result.reason).toBe('SCHEMA_INVALID');
+  });
+
   it('returns correct metadata in result', () => {
     const bundle = buildBundle([makeEvent()]);
     const result = verifyBundle(bundle);

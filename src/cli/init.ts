@@ -27,7 +27,7 @@ export function registerInit(program: Command): void {
 
       const config: TrustBundleConfig = {
         version: '0.1',
-        output_dir: `.${join('/', CONFIG_DIR, BUNDLES_DIR)}`.slice(1), // ".trustbundle/bundles"
+        output_dir: `${CONFIG_DIR}/${BUNDLES_DIR}`, // ".trustbundle/bundles"
       };
 
       await mkdir(bundlesDir, { recursive: true });

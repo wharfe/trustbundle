@@ -13,6 +13,9 @@ dist/
 Thumbs.db
 *.Zone.Identifier
 
+# Review results
+.reviews/
+
 # trustbundle working directory
 .trustbundle/
 
