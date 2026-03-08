@@ -46,5 +46,8 @@
     "bundle",
     "compliance",
     "governance"
-  ]
+  ],
+  "dependencies": {
+    "commander": "^14.0.3"
+  }
 }
