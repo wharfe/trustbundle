@@ -1,0 +1,23 @@
+node_modules/
+dist/
+*.tsbuildinfo
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+*.Zone.Identifier
+
+# trustbundle working directory
+.trustbundle/
+
+# Development docs (not for publication)
+docs/oss-dev-guidelines.md
+docs/trustbundle-HANDOFF.md
+docs/oss-dev-guidelines.md:Zone.Identifier
+docs/trustbundle-HANDOFF.md:Zone.Identifier

@@ -1,0 +1,48 @@
+{
+  "name": "trustbundle",
+  "version": "0.1.0",
+  "description": "Pack AI agent execution traces into signed, verifiable bundles for audit and compliance.",
+  "license": "MIT",
+  "type": "module",
+  "bin": {
+    "trustbundle": "./dist/cli/index.js"
+  },
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "types": "./dist/index.d.ts"
+    }
+  },
+  "files": [
+    "dist",
+    "README.md"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/wharfe/trustbundle.git"
+  },
+  "homepage": "https://github.com/wharfe/trustbundle",
+  "scripts": {
+    "build": "tsc",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "lint": "eslint src/",
+    "prepublishOnly": "npm run build"
+  },
+  "devDependencies": {
+    "typescript": "^5.7.0"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "keywords": [
+    "ai",
+    "agent",
+    "audit",
+    "trust",
+    "bundle",
+    "compliance",
+    "governance"
+  ]
+}
