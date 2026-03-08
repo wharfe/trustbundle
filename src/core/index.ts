@@ -10,3 +10,11 @@ export type {
   VerifyResult,
   VerifyFailureReason,
 } from './types.js';
+
+export {
+  canonicalize,
+  computeDigest,
+  buildBundle,
+  verifyBundle,
+} from './engine.js';
+export type { BuildBundleOptions } from './engine.js';
