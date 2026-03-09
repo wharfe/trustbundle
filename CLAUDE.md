@@ -2,6 +2,17 @@
 
 AI agent execution traces → signed, verifiable bundles for audit & compliance.
 
+## Suite Position
+
+This repository is **Layer 3 — After** in the [Agent Trust Suite](https://github.com/wharfe/agent-trust-suite).
+
+- **Does:** Package agent execution traces into tamper-evident bundles with digest-based integrity verification. Supports multiple input adapters (JSONL, agentbond audit records).
+- **Does not:** Cryptographic signing or key management (planned for future releases).
+- **Install:** `npm install -g trustbundle` (v0.1.0, published to npm)
+- **Input:** JSONL trace files or agentbond audit record JSON
+- **Output:** Trust bundle JSON with SHA-256 integrity digests
+- **Suite navigation:** See [AGENTS.md](https://github.com/wharfe/agent-trust-suite/blob/main/AGENTS.md) for full component map.
+
 Single-package TypeScript CLI (not a monorepo).
 
 ## Tech Stack
