@@ -10,7 +10,7 @@ Single-package TypeScript CLI (not a monorepo).
 - Node.js >= 20, ESM (`"type": "module"`)
 - Test: vitest
 - Lint: eslint
-- CLI framework: commander or citty (TBD at Step 4)
+- CLI framework: commander
 
 ## Commands
 
@@ -26,7 +26,7 @@ Single-package TypeScript CLI (not a monorepo).
 src/
   cli/        — CLI entry point & subcommands (init, build, verify, show)
   core/       — types, bundle engine, digest computation
-  adapters/   — input source adapters (jsonl, agentbond, otel)
+  adapters/   — input source adapters (jsonl, agentbond; otel planned)
   index.ts    — library re-exports
 ```
 
